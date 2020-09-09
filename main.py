@@ -4,4 +4,6 @@ weer_live = WeerLive(api_key="demo", location="Amsterdam")
 
 weer = weer_live.get_live_weather()
 
-print(weer.current_temperature)
+print(
+    f"Current temperature in {weer.location} is {weer.current_temperature} degrees celcius."
+)

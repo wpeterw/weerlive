@@ -4,8 +4,8 @@ from collections import namedtuple
 
 class WeerLive:
     def __init__(self, api_key, location):
-        self.api_key = api_key
-        self.location = location
+        api_key = api_key
+        location = location
         self.url = f"http://weerlive.nl/api/json-data-10min.php?key={api_key}&locatie={location}"
 
     def get_weather_data(self):
@@ -80,8 +80,8 @@ class WeerLive:
     def get_live_weather(self):
 
         weather = self.get_weather_data()
-        corrected_weather = self.correct_descriptions(
+        weather_with_descriptions = self.correct_descriptions(
             weather_data=weather, descriptions=self.descriptions_dict()
         )
 
-        return self.dict_to_tuple(corrected_weather)
+        return self.dict_to_tuple(weather_with_descriptions)
